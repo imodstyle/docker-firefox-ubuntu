@@ -1,7 +1,7 @@
 #
 # firefox Dockerfile
 #
-# https://github.com/imodstyle/docker-firefox
+# https://github.com/imodstyle/docker-firefox-ubuntu
 #
 
 # Build the membarrier check tool.
@@ -26,7 +26,7 @@ RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y fir
 
 # Generate and install favicons.
 RUN \
-    APP_ICON_URL=https://raw.githubusercontent.com/imodstyle/docker-firefox/master/img/firefox-icon.png && \
+    APP_ICON_URL=https://raw.githubusercontent.com/imodstyle/docker-firefox-ubuntu/master/img/firefox-icon.png && \
     install_app_icon.sh "$APP_ICON_URL"
 
 # Add files.
@@ -50,5 +50,5 @@ LABEL \
       org.label-schema.name="firefox" \
       org.label-schema.description="Docker container for Firefox" \
       org.label-schema.version="${DOCKER_IMAGE_VERSION:-unknown}" \
-      org.label-schema.vcs-url="https://github.com/imodstyle/docker-firefox" \
+      org.label-schema.vcs-url="https://github.com/imodstyle/docker-firefox-ubuntu" \
       org.label-schema.schema-version="1.0"
