@@ -47,7 +47,7 @@ ENV \
 
 # Metadata.
 LABEL \
-      org.label-schema.name="firefox ubuntu" \
+      org.label-schema.name="firefox-ubuntu" \
       org.label-schema.description="Docker container for Firefox" \
       org.label-schema.version="${DOCKER_IMAGE_VERSION:-unknown}" \
       org.label-schema.vcs-url="https://github.com/imodstyle/docker-firefox-ubuntu" \
