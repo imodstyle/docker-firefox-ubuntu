@@ -35,7 +35,7 @@ COPY --from=membarrier /tmp/membarrier_check /usr/bin/
 
 # Set internal environment variables.
 RUN \
-    set-cont-env APP_NAME "Firefox" && \
+    set-cont-env APP_NAME "Firefox-Ubuntu" && \
     set-cont-env APP_VERSION "$FIREFOX_VERSION" && \
     set-cont-env DOCKER_IMAGE_VERSION "$DOCKER_IMAGE_VERSION" && \
     true
@@ -47,7 +47,7 @@ ENV \
 
 # Metadata.
 LABEL \
-      org.label-schema.name="firefox" \
+      org.label-schema.name="firefox ubuntu" \
       org.label-schema.description="Docker container for Firefox" \
       org.label-schema.version="${DOCKER_IMAGE_VERSION:-unknown}" \
       org.label-schema.vcs-url="https://github.com/imodstyle/docker-firefox-ubuntu" \
