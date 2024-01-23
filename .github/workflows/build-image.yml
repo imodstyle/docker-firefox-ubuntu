@@ -5,7 +5,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  DOCKER_IMAGE_NAME: imodstyle/firefox
+  DOCKER_IMAGE_NAME: imodstyle/firefox-ubuntu
   PLATFORMS: linux/amd64,linux/arm/v7,linux/arm64/v8
 
 on:
