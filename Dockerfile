@@ -13,16 +13,22 @@ RUN gcc -static -o membarrier_check membarrier_check.c
 RUN strip membarrier_check
 
 # Pull base image.
-FROM imodstyle/baseimage-gui:ubuntu-22.04-v4.5.1
+FROM imodstyle/baseimage-gui:ubuntu-20.04-v4.5.1
 
 # Docker image version is provided via build arg.
 ARG DOCKER_IMAGE_VERSION=
+
+# Define software versions.
+ARG FIREFOX_VERSION=120.0.1-r0
 
 # Define working directory.
 WORKDIR /tmp
 
 # Install Firefox.
-RUN apt-get update && apt-get install firefox -y 
+RUN sudo apt remove --autoremove snapd -y \
+    add-apt-repository ppa:mozillateam/ppa -y \
+    apt-get update && apt-get upgrade -y \
+    apt-get install firefox -y
 
 # Install extra packages.
 RUN apt-get update && apt-get install \
@@ -31,7 +37,7 @@ RUN apt-get update && apt-get install \
         # Icons used by folder/file selection window (when saving as).
         adwaita-icon-theme \
         # A font is needed.
-        font-dejavu \
+        font-dejavu-core \
         # The following package is used to send key presses to the X process.
         xdotool -y
 
