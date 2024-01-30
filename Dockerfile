@@ -13,22 +13,20 @@ RUN gcc -static -o membarrier_check membarrier_check.c
 RUN strip membarrier_check
 
 # Pull base image.
-FROM imodstyle/baseimage-gui:ubuntu-20.04-v4.5.1
+FROM imodstyle/baseimage-gui:ubuntu-20.04-v4.6.0
 
 # Docker image version is provided via build arg.
 ARG DOCKER_IMAGE_VERSION=
-
-# Define software versions.
-ARG FIREFOX_VERSION=120.0.1-r0
 
 # Define working directory.
 WORKDIR /tmp
 
 # Install Firefox.
-RUN sudo apt remove --autoremove snapd -y \
-    add-apt-repository ppa:mozillateam/ppa -y \
-    apt-get update && apt-get upgrade -y \
-    apt-get install firefox -y
+RUN wget -O firefox-latest.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" \
+    tar xjf firefox-latest.tar.bz2 \
+    mv firefox /opt/firefox-latest \
+    ln -s /opt/firefox-latest/firefox /usr/bin/firefox \
+    firefox
 
 # Install extra packages.
 RUN apt-get update && apt-get install \
