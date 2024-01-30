@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install wget -y \
     && wget -O firefox-latest.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" \
     && tar xjf firefox-latest.tar.bz2 \
     && mv firefox /opt/firefox-latest \
-    &&ln -s /opt/firefox-latest/firefox /usr/bin/firefox \
+    && ln -s /opt/firefox-latest/firefox /usr/bin/firefox \
     && firefox
 
 # Install extra packages.
