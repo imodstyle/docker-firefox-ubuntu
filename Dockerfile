@@ -32,8 +32,6 @@ RUN sudo apt remove --autoremove snapd -y \
 
 # Install extra packages.
 RUN apt-get update && apt-get install \
-        # WebGL support.
-        mesa-dri-gallium \
         # Icons used by folder/file selection window (when saving as).
         adwaita-icon-theme \
         # A font is needed.
