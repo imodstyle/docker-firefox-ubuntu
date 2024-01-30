@@ -22,7 +22,7 @@ ARG DOCKER_IMAGE_VERSION=
 WORKDIR /tmp
 
 # Install Firefox.
-RUN apt-get update && apt-get install wget -y && \
+RUN apt-get update && apt-get install wget -y \
     wget -O firefox-latest.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" && \
     tar xjf firefox-latest.tar.bz2 && \
     mv firefox /opt/firefox-latest && \
