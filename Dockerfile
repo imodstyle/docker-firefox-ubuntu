@@ -22,7 +22,18 @@ ARG DOCKER_IMAGE_VERSION=
 WORKDIR /tmp
 
 # Install Firefox.
-RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y firefox
+RUN apt-get update && apt-get install -y firefox 
+
+# Install extra packages.
+RUN apt-get update && apt-get install -y \
+        # WebGL support.
+        mesa-dri-gallium \
+        # Icons used by folder/file selection window (when saving as).
+        adwaita-icon-theme \
+        # A font is needed.
+        font-dejavu \
+        # The following package is used to send key presses to the X process.
+        xdotool
 
 # Generate and install favicons.
 RUN \
