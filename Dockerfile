@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install \
         # Icons used by folder/file selection window (when saving as).
         adwaita-icon-theme \
         # A font is needed.
-        font-dejavu-core \
+        #font-dejavu-core \
         # The following package is used to send key presses to the X process.
         xdotool -y
 
